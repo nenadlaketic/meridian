@@ -11,7 +11,7 @@
       '.m-drawer{display:none}',
       '@media(max-width:768px){',
       '  header nav{display:none!important}',
-      '  header > a[href*="Zakazivanje"]{display:none!important}',
+      '  header > a[href*="zakazivanje" i]{display:none!important}',
       '  .m-burger{display:flex!important;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:44px;height:44px;padding:0;background:none;border:none;cursor:pointer;flex-shrink:0}',
       '  .m-burger span{display:block;width:24px;height:2px;background:#1A1A1A;border-radius:2px;transition:transform .3s ease,opacity .25s ease}',
       '  .m-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}',

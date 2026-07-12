@@ -4,6 +4,19 @@
   var root = document.documentElement;
   root.classList.add('js-reveal');
 
+  // Safety net: reveal EVERYTHING within a short window regardless of the
+  // observer path. The DC runtime renders the template asynchronously (React
+  // from CDN), so the observer setup in init() can race the render and, on
+  // slower connections, leave content stuck at opacity:0. Re-querying the
+  // live DOM here guarantees nothing stays hidden. The scroll animation still
+  // plays when the observer wins the race; this only backstops it.
+  function revealAll() {
+    var e = document.querySelectorAll('[data-reveal]');
+    for (var i = 0; i < e.length; i++) e[i].classList.add('in');
+  }
+  setTimeout(revealAll, 1500);
+  window.addEventListener('load', function () { setTimeout(revealAll, 300); });
+
   function reveal(el) { el.classList.add('in'); }
 
   function init() {
