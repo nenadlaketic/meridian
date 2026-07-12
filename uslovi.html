@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;background:#F3EDE4;font-family:'Hanken Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:#2F4738;text-decoration:none}
+  a:hover{color:#B07A56}
+  .doc h2{font-family:Newsreader;font-weight:500;font-size:26px;letter-spacing:-.01em;color:#1A1A1A;margin:52px 0 14px}
+  .doc p{font-size:16px;line-height:1.68;color:#3f3f3f;margin:0 0 16px}
+  .doc ul{margin:0 0 16px;padding-left:22px}
+  .doc li{font-size:16px;line-height:1.68;color:#3f3f3f;margin-bottom:7px}
+  .flink{position:relative;transition:color .22s ease}
+  .flink:hover{color:#F3EDE4 !important}
+  .flink-sm{transition:color .22s ease}
+  .flink-sm:hover{color:#b8b3aa !important}
+  .copybtn:hover{color:#F3EDE4}
+  @media (max-width:760px){header{flex-wrap:wrap;gap:14px 20px;padding:18px 24px !important}header nav{gap:18px !important;flex-wrap:wrap}}
+
+  /* ===== RESPONSIVE (mobile) ===== */
+  @media (max-width:768px){
+    [style*="px 56px"]{padding-left:24px!important;padding-right:24px!important}
+    [style*="px 48px"]{padding-left:24px!important;padding-right:24px!important}
+    [style*="grid-template-columns: repeat(4"]{grid-template-columns:1fr 1fr!important}
+    [style*="grid-template-columns: repeat(3"]{grid-template-columns:1fr!important}
+    [style*="grid-template-columns: repeat(2"]{grid-template-columns:1fr!important}
+    [style*="grid-template-columns: 1fr 1.9fr"]{grid-template-columns:1fr!important;gap:24px!important}
+    [style*="grid-template-columns: 1fr 1.5fr"]{grid-template-columns:1fr!important;gap:20px!important}
+    [style*="grid-template-columns: 1fr 1.35fr"]{grid-template-columns:1fr!important;gap:20px!important}
+    [style*="grid-template-columns: 0.95fr"]{grid-template-columns:1fr!important;gap:28px!important}
+    [style*="grid-template-columns: 1fr 1fr"]{grid-template-columns:1fr!important}
+    [style*="grid-template-columns: 88px 1fr"]{grid-template-columns:auto 1fr!important;gap:18px!important}
+    [style*="grid-template-columns: 1fr 1px 1fr auto"]{grid-template-columns:1fr!important;gap:22px!important}
+    [style*="min-height: 620px"]{flex-direction:column!important;min-height:0!important}
+    [style*="min-height: 620px"]>div:last-child{height:300px!important;flex:none!important}
+    [style*="flex: 0 0 42%"]{flex:1 1 auto!important}
+    [data-tcard]{flex:0 0 82%!important}
+    [style*="margin: 12px -56px"]{margin-left:0!important;margin-right:0!important}
+    [style*="width: 400px"]{width:auto!important}
+    [style*="width:"]{max-width:100%!important}
+    [style*="gap: 44px 56px"]{padding-left:0!important;padding-right:0!important}
+    h1{font-size:38px!important;line-height:1.08!important}
+    h2{font-size:30px!important}
+  }
+  @media (max-width:480px){
+    [style*="grid-template-columns: repeat(4"]{grid-template-columns:1fr!important}
+    h1{font-size:32px!important}
+  }
+</style>
+<script src="./copy.js"></script>
+<script src="./menu.js"></script>
+</helmet>
+
+<header style="display:flex;align-items:center;justify-content:space-between;padding:24px 56px;border-bottom:1px solid rgba(26,26,26,.10)">
+  <a href="index.html" style="font-family:Newsreader;font-size:23px;letter-spacing:.24em;color:#1A1A1A;font-weight:500">MERIDIAN</a>
+  <nav style="display:flex;gap:36px;font-size:14.5px;color:#3a3a3a;white-space:nowrap">
+    <a href="pristup.html" style="color:#3a3a3a">Pristup</a>
+    <a href="programi.html" style="color:#3a3a3a">Programi</a>
+    <a href="nauka.html" style="color:#3a3a3a">Nauka</a>
+    <a href="o-nama.html" style="color:#3a3a3a">O nama</a>
+  </nav>
+  <a href="zakazivanje.html" style="background:#2F4738;color:#F3EDE4;padding:12px 22px;font-size:13.5px;font-weight:600;letter-spacing:.02em;border-radius:2px;white-space:nowrap;flex-shrink:0">Zakaži poziv</a>
+  <button type="button" class="m-burger" aria-label="Otvori meni"><span></span><span></span><span></span></button>
+  <div class="m-drawer" role="dialog" aria-label="Meni">
+    <nav class="m-drawer-nav">
+      <a href="pristup.html">Pristup</a>
+      <a href="programi.html">Programi</a>
+      <a href="nauka.html">Nauka</a>
+      <a href="o-nama.html">O nama</a>
+    </nav>
+    <a href="zakazivanje.html" class="m-drawer-cta">Zakaži poziv</a>
+  </div>
+</header>
+
+<div style="max-width:720px;margin:0 auto;padding:80px 24px 96px">
+  <div style="font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#B07A56;font-weight:600;margin-bottom:20px">Uslovi korišćenja</div>
+  <h1 style="font-family:Newsreader;font-weight:400;font-size:46px;line-height:1.08;letter-spacing:-.015em;color:#1A1A1A;margin:0 0 16px">Uslovi korišćenja usluga</h1>
+  <p style="font-size:14px;color:#6B6B6B;margin:0 0 8px">Poslednje ažuriranje: 1. jul 2026.</p>
+
+  <div class="doc">
+    <p>Korišćenjem sajta i usluga Meridiana prihvatate uslove opisane u nastavku. Molimo da ih pročitate pre zakazivanja termina. Meridian posluje na adresi Molerova 9, 11000 Beograd.</p>
+
+    <h2>Priroda usluge</h2>
+    <p>Meridian pruža preventivne procene i praćenje zdravlja. Naše usluge ne zamenjuju hitnu medicinsku pomoć niti lečenje akutnih stanja. Ako imate hitan zdravstveni problem, obratite se hitnoj službi na 194 ili najbližoj ustanovi.</p>
+
+    <h2>Zakazivanje i otkazivanje</h2>
+    <ul>
+      <li>Termin se smatra potvrđenim kada dobijete potvrdu od našeg tima.</li>
+      <li>Otkazivanje ili pomeranje termina molimo najavite najmanje 24 sata unapred.</li>
+      <li>Za termine otkazane bez najave zadržavamo pravo naplate dela usluge.</li>
+    </ul>
+
+    <h2>Plaćanje</h2>
+    <p>Cene i obim svakog programa dogovaraju se pre početka. Uslovi plaćanja biće jasno navedeni u ponudi koju dobijete pre potvrde.</p>
+
+    <h2>Vaše obaveze</h2>
+    <p>Da bi procena bila tačna, potrebno je da pružite istinite i potpune podatke o zdravlju. Meridian ne odgovara za posledice odluka donetih na osnovu nepotpunih ili netačnih informacija.</p>
+
+    <h2>Ograničenje odgovornosti</h2>
+    <p>Nalazi i preporuke su informativne prirode i temelje se na podacima dostupnim u trenutku procene. Konačne odluke o svom zdravlju donosite vi, po potrebi uz konsultaciju sa svojim lekarom.</p>
+
+    <h2>Intelektualna svojina</h2>
+    <p>Sadržaj sajta, tekstovi i vizuelni identitet pripadaju Meridianu i ne smeju se koristiti bez pisane saglasnosti.</p>
+
+    <h2>Izmene uslova</h2>
+    <p>Uslove možemo povremeno ažurirati. Važeća verzija je uvek objavljena na ovoj stranici, sa datumom poslednje izmene.</p>
+
+    <h2>Merodavno pravo</h2>
+    <p>Na ove uslove primenjuje se pravo Republike Srbije. Eventualne sporove rešavamo dogovorom, a ako to nije moguće, pred nadležnim sudom u Beogradu.</p>
+
+    <h2>Kontakt</h2>
+    <p>Za pitanja o uslovima pišite na <a href="mailto:info@meridian.rs">info@meridian.rs</a> ili nas pozovite na +381 11 4000 200.</p>
+  </div>
+</div>
+
+<footer style="background:#1A1A1A;color:#b8b3aa;padding:56px 56px 34px">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.1)">
+    <div style="max-width:340px">
+      <div style="font-family:Newsreader;font-size:22px;letter-spacing:.22em;color:#F3EDE4;margin-bottom:12px">MERIDIAN</div>
+      <p style="font-size:14px;line-height:1.3;color:#8a857c;margin:0">Ne čekamo da se pojavi simptom. Merimo dok se još sve može promeniti.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;color:#b8b3aa;line-height:1.5;max-width:280px">
+      <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#6f6a62;font-weight:600;margin-bottom:4px">Kontakt</div>
+      <a href="tel:+381114000200" class="flink" style="color:#b8b3aa">+381 11 4000 200</a>
+      <button type="button" data-copy="info@meridian.rs" class="copybtn" style="display:inline-flex;align-items:center;gap:7px;background:none;border:none;padding:0;margin:0;font-family:inherit;font-size:14px;color:#b8b3aa;cursor:pointer;text-align:left">
+        <span data-copy-text style="display:inline-flex;align-items:center;gap:7px">info@meridian.rs<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10"></path></svg></span>
+        <span data-copy-done style="display:none;align-items:center;gap:6px;color:#8fa596">Kopirano<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></span>
+      </button>
+      <a href="https://www.google.com/maps/search/?api=1&query=Molerova%209%2C%2011000%20Beograd" target="_blank" rel="noopener" class="flink" style="display:inline-flex;align-items:center;gap:7px;color:#b8b3aa">Molerova 9, 11000 Beograd<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.4 7-11a7 7 0 0 0-14 0c0 4.6 7 11 7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></a>
+      <div>Pon–pet 08–20 · sub 09–14</div>
+    </div>
+    <nav style="display:flex;gap:30px;font-size:14px;flex-wrap:wrap">
+      <a href="pristup.html" class="flink" style="color:#b8b3aa">Pristup</a>
+      <a href="programi.html" class="flink" style="color:#b8b3aa">Programi</a>
+      <a href="nauka.html" class="flink" style="color:#b8b3aa">Nauka</a>
+      <a href="o-nama.html" class="flink" style="color:#b8b3aa">O nama</a>
+    </nav>
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:24px;font-size:12.5px;color:#6f6a62">
+    <div>© 2026 Meridian</div>
+    <div style="display:flex;gap:24px"><a href="privatnost.html" class="flink-sm" style="color:#6f6a62">Privatnost</a><a href="uslovi.html" class="flink-sm" style="color:#B07A56">Uslovi</a></div>
+  </div>
+</footer>
+</x-dc>
+</body>
+</html>

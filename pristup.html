@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics="">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  body{margin:0;background:#F3EDE4;font-family:'Hanken Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:#2F4738;text-decoration:none}
+  a:hover{color:#B07A56}
+  h1,h2,h3{letter-spacing:-.01em}
+  .mlink{font-family:'Hanken Grotesk';font-size:14px;font-weight:600;letter-spacing:.01em;display:inline-flex;align-items:center;gap:8px}
+  .mlink span{display:inline-block;transition:transform .22s ease}
+  .mlink:hover span{transform:translateX(4px)}
+  .btn-cta{transition:background .25s ease,transform .2s ease,box-shadow .25s ease}
+  .btn-cta:hover{background:#243529 !important;transform:translateY(-2px);box-shadow:0 10px 24px rgba(26,26,26,.20)}
+  .btn-cta:active{transform:translateY(0)}
+  .btn-cta-light{transition:background .25s ease,transform .2s ease,box-shadow .25s ease}
+  .btn-cta-light:hover{background:#ffffff !important;transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.24)}
+  .btn-cta-light:active{transform:translateY(0)}
+  .card-lift{transition:transform .3s cubic-bezier(.16,.7,.3,1),box-shadow .3s ease}
+  .card-lift:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(26,26,26,.12)}
+  .step-row{transition:background .3s ease}
+  .js-reveal [data-reveal]{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.16,.7,.3,1),transform .7s cubic-bezier(.16,.7,.3,1)}
+  .js-reveal [data-reveal].in{opacity:1;transform:none}
+  .flink{position:relative;transition:color .22s ease}
+  .flink:hover{color:#F3EDE4 !important}
+  .flink::after{content:"";position:absolute;left:0;bottom:-3px;width:100%;height:1px;background:#B07A56;transform:scaleX(0);transform-origin:left;transition:transform .28s cubic-bezier(.16,.7,.3,1)}
+  .flink:hover::after{transform:scaleX(1)}
+  .flink-sm{transition:color .22s ease}
+  .flink-sm:hover{color:#b8b3aa !important}
+  .copybtn:hover{color:#F3EDE4}
+  @media (max-width:760px){
+    header{flex-wrap:wrap;gap:14px 20px;padding:18px 24px !important}
+    header nav{gap:18px !important;flex-wrap:wrap}
+  }
+  @media (prefers-reduced-motion:reduce){.js-reveal [data-reveal]{opacity:1 !important;transform:none !important;transition:none !important}.btn-cta:hover,.btn-cta-light:hover,.card-lift:hover{transform:none !important}}
+
+  /* ===== RESPONSIVE (mobile) ===== */
+  @media (max-width:768px){
+    [style*="px 56px"]{padding-left:24px!important;padding-right:24px!important}
+    [style*="px 48px"]{padding-left:24px!important;padding-right:24px!important}
+    [style*="grid-template-columns: repeat(4"]{grid-template-columns:1fr 1fr!important}
+    [style*="grid-template-columns: repeat(3"]{grid-template-columns:1fr!important}
+    [style*="grid-template-columns: repeat(2"]{grid-template-columns:1fr!important}
+    [style*="grid-template-columns: 1fr 1.9fr"]{grid-template-columns:1fr!important;gap:24px!important}
+    [style*="grid-template-columns: 1fr 1.5fr"]{grid-template-columns:1fr!important;gap:20px!important}
+    [style*="grid-template-columns: 1fr 1.35fr"]{grid-template-columns:1fr!important;gap:20px!important}
+    [style*="grid-template-columns: 0.95fr"]{grid-template-columns:1fr!important;gap:28px!important}
+    [style*="grid-template-columns: 1fr 1fr"]{grid-template-columns:1fr!important}
+    [style*="grid-template-columns: 88px 1fr"]{grid-template-columns:auto 1fr!important;gap:18px!important}
+    [style*="grid-template-columns: 1fr 1px 1fr auto"]{grid-template-columns:1fr!important;gap:22px!important}
+    [style*="min-height: 620px"]{flex-direction:column!important;min-height:0!important}
+    [style*="min-height: 620px"]>div:last-child{height:300px!important;flex:none!important}
+    [style*="flex: 0 0 42%"]{flex:1 1 auto!important}
+    [data-tcard]{flex:0 0 82%!important}
+    [style*="margin: 12px -56px"]{margin-left:0!important;margin-right:0!important}
+    [style*="width: 400px"]{width:auto!important}
+    [style*="width:"]{max-width:100%!important}
+    [style*="gap: 44px 56px"]{padding-left:0!important;padding-right:0!important}
+    h1{font-size:38px!important;line-height:1.08!important}
+    h2{font-size:30px!important}
+  }
+  @media (max-width:480px){
+    [style*="grid-template-columns: repeat(4"]{grid-template-columns:1fr!important}
+    h1{font-size:32px!important}
+  }
+</style>
+<script src="./reveal.js"></script>
+<script src="./copy.js"></script>
+<script src="./menu.js"></script>
+</helmet>
+
+<header style="display:flex;align-items:center;justify-content:space-between;padding:24px 56px;border-bottom:1px solid rgba(26,26,26,.10)">
+  <a href="index.html" style="font-family:Newsreader;font-size:23px;letter-spacing:.24em;color:#1A1A1A;font-weight:500">MERIDIAN</a>
+  <nav style="display:flex;gap:36px;font-size:14.5px;color:#3a3a3a;white-space:nowrap">
+    <a href="#" style="color:#1A1A1A;font-weight:600">Pristup</a>
+    <a href="programi.html" style="color:#3a3a3a">Programi</a>
+    <a href="nauka.html" style="color:#3a3a3a">Nauka</a>
+    <a href="o-nama.html" style="color:#3a3a3a">O nama</a>
+  </nav>
+  <a href="zakazivanje.html" class="btn-cta" style="background:#2F4738;color:#F3EDE4;padding:12px 22px;font-size:13.5px;font-weight:600;letter-spacing:.02em;border-radius:2px;white-space:nowrap;flex-shrink:0">Zakaži poziv</a>
+  <button type="button" class="m-burger" aria-label="Otvori meni"><span></span><span></span><span></span></button>
+  <div class="m-drawer" role="dialog" aria-label="Meni">
+    <nav class="m-drawer-nav">
+      <a href="pristup.html">Pristup</a>
+      <a href="programi.html">Programi</a>
+      <a href="nauka.html">Nauka</a>
+      <a href="o-nama.html">O nama</a>
+    </nav>
+    <a href="zakazivanje.html" class="m-drawer-cta">Zakaži poziv</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<div style="padding:88px 56px 8px;max-width:1040px">
+  <div style="font-size:12.5px;letter-spacing:.22em;color:#B07A56;font-weight:600;text-transform:uppercase;margin-bottom:26px">Pristup</div>
+  <h1 style="font-family:Newsreader;font-weight:400;font-size:56px;line-height:1.06;letter-spacing:-.015em;color:#1A1A1A;margin:0 0 24px;max-width:820px;text-wrap:balance">Merenje nije test koji prođeš ili padneš. To je mapa odakle krećeš.</h1>
+  <p style="font-size:19px;line-height:1.35;color:#4a4a4a;margin:0 0 38px;max-width:600px">Većina ljudi izvadi krv, dobije nalaz sa dvadeset redova i reč „uredno”, i ode kući ništa pametniji. Kod nas znaš šta svaka brojka znači za tebe i šta ćeš tačno raditi s njom. Evo kako izgleda od prvog dolaska do plana koji radi.</p>
+  <div style="display:flex;align-items:center;gap:28px;flex-wrap:wrap">
+    <a href="zakazivanje.html" class="btn-cta" style="background:#2F4738;color:#F3EDE4;padding:16px 30px;font-size:15px;font-weight:600;border-radius:2px">Zakaži besplatan poziv</a>
+  </div>
+</div>
+
+<!-- INTRO / PROBLEM -->
+<div style="padding:64px 56px 4px">
+  <div style="border-top:1px solid rgba(26,26,26,.16);padding-top:40px;display:grid;grid-template-columns:1fr 1.5fr;gap:56px;align-items:start;max-width:1160px">
+    <h2 data-reveal="" style="font-family:Newsreader;font-weight:400;font-size:34px;line-height:1.1;color:#1A1A1A;margin:0;text-wrap:balance">Zašto proces, a ne jedan pregled</h2>
+    <div data-reveal="" data-delay="90">
+      <p style="font-size:18px;line-height:1.4;color:#4a4a4a;margin:0 0 18px;max-width:600px">Jedan pregled ti kaže kako stojiš danas. Ne kaže ti u kom smeru ideš. A smer je jedino što možeš da menjaš.</p>
+      <p style="font-size:18px;line-height:1.4;color:#4a4a4a;margin:0;max-width:600px">Zato radimo u ciklusu: izmerimo, objasnimo, napravimo plan, pa izmerimo ponovo. Svaki krug ti pokaže da li plan pomera brojku ili je vreme da ga menjamo. Ceo proces vodi te isti tim, od prve kapi krvi.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PROCES -->
+<div id="proces" style="padding:72px 56px 96px">
+  <div data-reveal="" style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:8px">
+    <div style="font-family:Newsreader;font-size:15px;font-style:italic;color:#6B6B6B">Korak po korak</div>
+    <div style="font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#B07A56;font-weight:600">Četiri koraka</div>
+  </div>
+
+  <!-- 01 -->
+  <div data-reveal="" class="step-row" style="display:grid;grid-template-columns:88px 1fr;gap:32px;padding:44px 0;border-top:1px solid rgba(26,26,26,.16)">
+    <div style="font-family:Newsreader;font-weight:400;font-size:46px;line-height:1;color:#B07A56">01</div>
+    <div>
+      <div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8a8577;font-weight:600;margin-bottom:12px">Prvi dolazak · oko 90 minuta · natašte</div>
+      <h3 style="font-family:Newsreader;font-weight:500;font-size:30px;color:#1A1A1A;margin:0 0 14px">Dijagnostika</h3>
+      <p style="font-size:17px;line-height:1.4;color:#4a4a4a;margin:0 0 28px;max-width:620px">Sve merimo u jednom danu, u jednom dolasku. Izvadimo krv za pun panel biomarkera, izmerimo sastav tela i osnovne vitalne parametre. Ne moraš da obilaziš tri laboratorije i čekaš rezultate nedeljama.</p>
+      <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#B07A56;font-weight:600;margin-bottom:16px">Šta merimo</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;max-width:720px">
+        <div style="display:flex;gap:12px;font-size:15px;color:#4a4a4a"><span style="color:#B07A56;flex-shrink:0">·</span>Krvna slika, lipidni panel i ApoB</div>
+        <div style="display:flex;gap:12px;font-size:15px;color:#4a4a4a"><span style="color:#B07A56;flex-shrink:0">·</span>Glukoza, insulin i HbA1c</div>
+        <div style="display:flex;gap:12px;font-size:15px;color:#4a4a4a"><span style="color:#B07A56;flex-shrink:0">·</span>hs-CRP i markeri upale</div>
+        <div style="display:flex;gap:12px;font-size:15px;color:#4a4a4a"><span style="color:#B07A56;flex-shrink:0">·</span>Hormoni: štitna žlezda, polni, kortizol</div>
+        <div style="display:flex;gap:12px;font-size:15px;color:#4a4a4a"><span style="color:#B07A56;flex-shrink:0">·</span>Vitamin D, B12 i feritin</div>
+        <div style="display:flex;gap:12px;font-size:15px;color:#4a4a4a"><span style="color:#B07A56;flex-shrink:0">·</span>Sastav tela: mišić i visceralna mast</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 -->
+  <div data-reveal="" class="step-row" style="display:grid;grid-template-columns:88px 1fr;gap:32px;padding:44px 0;border-top:1px solid rgba(26,26,26,.16)">
+    <div style="font-family:Newsreader;font-weight:400;font-size:46px;line-height:1;color:#B07A56">02</div>
+    <div>
+      <div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8a8577;font-weight:600;margin-bottom:12px">7 do 10 dana kasnije · oko 60 minuta · sa lekarom</div>
+      <h3 style="font-family:Newsreader;font-weight:500;font-size:30px;color:#1A1A1A;margin:0 0 14px">Analiza</h3>
+      <p style="font-size:17px;line-height:1.4;color:#4a4a4a;margin:0 0 28px;max-width:620px">Kad rezultati stignu, sedneš sa lekarom i pročitate ih zajedno, red po red. Iz biomarkera izračunamo koliko je tvoje telo staro u odnosu na broj godina u ličnoj karti. Brojke gledamo u kontekstu tvog sna, stresa, ishrane i porodične istorije, ne kao izolovane redove u nalazu.</p>
+      <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#B07A56;font-weight:600;margin-bottom:16px">Šta izađe iz ovog termina</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;max-width:720px">
+        <div style="display:flex;gap:12px;font-size:15px;color:#4a4a4a"><span style="color:#B07A56;flex-shrink:0">·</span>Biološka starost naspram hronološke</div>
+        <div style="display:flex;gap:12px;font-size:15px;color:#4a4a4a"><span style="color:#B07A56;flex-shrink:0">·</span>Gde si u odnosu na svoje ciljeve</div>
+        <div style="display:flex;gap:12px;font-size:15px;color:#4a4a4a"><span style="color:#B07A56;flex-shrink:0">·</span>Šta je hitno, a šta može da čeka</div>
+        <div style="display:flex;gap:12px;font-size:15px;color:#4a4a4a"><span style="color:#B07A56;flex-shrink:0">·</span>Odgovor na svako pitanje koje imaš</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 -->
+  <div data-reveal="" class="step-row" style="display:grid;grid-template-columns:88px 1fr;gap:32px;padding:44px 0;border-top:1px solid rgba(26,26,26,.16)">
+    <div style="font-family:Newsreader;font-weight:400;font-size:46px;line-height:1;color:#B07A56">03</div>
+    <div>
+      <div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8a8577;font-weight:600;margin-bottom:12px">Napisan za tebe · ne prepisan iz knjige</div>
+      <h3 style="font-family:Newsreader;font-weight:500;font-size:30px;color:#1A1A1A;margin:0 0 14px">Protokol</h3>
+      <p style="font-size:17px;line-height:1.4;color:#4a4a4a;margin:0 0 28px;max-width:620px">Dobiješ plan ishrane, kretanja, sna i po potrebi suplemenata ili terapije. Svaki korak ima razlog i cilj vezan za tvoju brojku. Znaš šta radiš i zašto, i šta očekuješ da se pomeri do sledećeg merenja.</p>
+      <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#B07A56;font-weight:600;margin-bottom:16px">Šta dobiješ</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;max-width:720px">
+        <div style="display:flex;gap:12px;font-size:15px;color:#4a4a4a"><span style="color:#B07A56;flex-shrink:0">·</span>Ishrana prilagođena tvom metabolizmu</div>
+        <div style="display:flex;gap:12px;font-size:15px;color:#4a4a4a"><span style="color:#B07A56;flex-shrink:0">·</span>Plan kretanja koji možeš da održiš</div>
+        <div style="display:flex;gap:12px;font-size:15px;color:#4a4a4a"><span style="color:#B07A56;flex-shrink:0">·</span>Suplementi samo gde brojka to traži</div>
+        <div style="display:flex;gap:12px;font-size:15px;color:#4a4a4a"><span style="color:#B07A56;flex-shrink:0">·</span>Jasni ciljevi za naredna tri meseca</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 -->
+  <div data-reveal="" class="step-row" style="display:grid;grid-template-columns:88px 1fr;gap:32px;padding:44px 0;border-top:1px solid rgba(26,26,26,.16);border-bottom:1px solid rgba(26,26,26,.16)">
+    <div style="font-family:Newsreader;font-weight:400;font-size:46px;line-height:1;color:#B07A56">04</div>
+    <div>
+      <div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8a8577;font-weight:600;margin-bottom:12px">Ponovo za tri meseca · pa iz kvartala u kvartal</div>
+      <h3 style="font-family:Newsreader;font-weight:500;font-size:30px;color:#1A1A1A;margin:0 0 14px">Praćenje</h3>
+      <p style="font-size:17px;line-height:1.4;color:#4a4a4a;margin:0 0 28px;max-width:620px">Merimo ponovo i poredimo brojke. Ono što radi, zadržavamo. Ono što ne pomera brojku, menjamo. Vidiš trend kroz vreme, ne jednu fotografiju u trenutku.</p>
+      <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#B07A56;font-weight:600;margin-bottom:16px">Kako izgleda svaki krug</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;max-width:720px">
+        <div style="display:flex;gap:12px;font-size:15px;color:#4a4a4a"><span style="color:#B07A56;flex-shrink:0">·</span>Ponovljena merenja ključnih markera</div>
+        <div style="display:flex;gap:12px;font-size:15px;color:#4a4a4a"><span style="color:#B07A56;flex-shrink:0">·</span>Poređenje sa polaznom tačkom</div>
+        <div style="display:flex;gap:12px;font-size:15px;color:#4a4a4a"><span style="color:#B07A56;flex-shrink:0">·</span>Prilagođavanje protokola u hodu</div>
+        <div style="display:flex;gap:12px;font-size:15px;color:#4a4a4a"><span style="color:#B07A56;flex-shrink:0">·</span>Cela tvoja istorija na jednom mestu</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- KREDIBILITET + DOKAZI -->
+<div style="background:#ECE3D4;padding:96px 56px">
+  <div data-reveal="" style="max-width:760px;margin-bottom:56px">
+    <div style="font-family:Newsreader;font-size:15px;font-style:italic;color:#6B6B6B;margin-bottom:14px">Ko stoji iza brojki</div>
+    <h2 style="font-family:Newsreader;font-weight:400;font-size:40px;line-height:1.1;color:#1A1A1A;margin:0 0 18px;text-wrap:balance">Merenja ne čita algoritam. Čita ih tim koji radi sa ljudima.</h2>
+    <p style="font-size:18px;line-height:1.4;color:#4a4a4a;margin:0;max-width:640px">Brojka bez konteksta je samo brojka. Zato tvoj nalaz prolazi kroz lekare, a ne kroz automat koji ti pošalje PDF i ostavi te da nagađaš.</p>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-bottom:64px">
+    <div data-reveal="" data-delay="0" style="border-top:1px solid rgba(26,26,26,.18);padding-top:22px">
+      <div style="font-size:17px;font-weight:600;color:#1A1A1A;margin-bottom:8px">Tim, ne šalter</div>
+      <p style="font-size:14.5px;line-height:1.35;color:#5a5a5a;margin:0">Internista, endokrinolog, nutricionista i fiziolog sporta, sa preko 15 godina kliničkog iskustva.</p>
+    </div>
+    <div data-reveal="" data-delay="85" style="border-top:1px solid rgba(26,26,26,.18);padding-top:22px">
+      <div style="font-size:17px;font-weight:600;color:#1A1A1A;margin-bottom:8px">Akreditovana laboratorija</div>
+      <p style="font-size:14.5px;line-height:1.35;color:#5a5a5a;margin:0">Analize radimo u laboratoriji akreditovanoj po ISO 15189, na opremi za sastav tela medicinske klase.</p>
+    </div>
+    <div data-reveal="" data-delay="170" style="border-top:1px solid rgba(26,26,26,.18);padding-top:22px">
+      <div style="font-size:17px;font-weight:600;color:#1A1A1A;margin-bottom:8px">Iza nas su ljudi</div>
+      <p style="font-size:14.5px;line-height:1.35;color:#5a5a5a;margin:0">Preko 1.200 članova i 3.800 urađenih merenja od kojih učimo šta zaista pomera brojke.</p>
+    </div>
+    <div data-reveal="" data-delay="255" style="border-top:1px solid rgba(26,26,26,.18);padding-top:22px">
+      <div style="font-size:17px;font-weight:600;color:#1A1A1A;margin-bottom:8px">Tvoji podaci su tvoji</div>
+      <p style="font-size:14.5px;line-height:1.35;color:#5a5a5a;margin:0">Nalaze i istoriju čuvamo šifrovano. Ništa ne delimo bez tvog pristanka, nikad.</p>
+    </div>
+  </div>
+
+  <div data-reveal="" style="border-top:1px solid rgba(26,26,26,.2);padding-top:40px">
+    <div style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#B07A56;font-weight:600;margin-bottom:28px">Šta vidimo u brojkama članova</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:40px">
+      <div>
+        <div style="font-family:Newsreader;font-weight:400;font-size:58px;line-height:1;color:#2F4738;margin-bottom:14px">78%</div>
+        <p style="font-size:15px;line-height:1.35;color:#5a5a5a;margin:0;max-width:280px">članova poboljša bar tri ključna markera u prvih šest meseci.</p>
+      </div>
+      <div>
+        <div style="font-family:Newsreader;font-weight:400;font-size:58px;line-height:1;color:#2F4738;margin-bottom:14px">-14%</div>
+        <p style="font-size:15px;line-height:1.35;color:#5a5a5a;margin:0;max-width:280px">prosečan pad visceralne masti posle šest meseci praćenja.</p>
+      </div>
+      <div>
+        <div style="font-family:Newsreader;font-weight:400;font-size:58px;line-height:1;color:#2F4738;margin-bottom:14px">-3,2</div>
+        <p style="font-size:15px;line-height:1.35;color:#5a5a5a;margin:0;max-width:280px">godine niža biološka starost, u proseku, posle godinu dana.</p>
+      </div>
+    </div>
+    <p data-reveal="" style="font-size: 13px; line-height: 1.4; color: #8a8577; margin: 32px 0 0; max-width: 430px; width: 380px">Brojke su prosek članova sa najmanje dva merenja. Tvoj rezultat zavisi od polazne tačke i toga koliko dosledno pratiš plan.</p>
+  </div>
+</div>
+
+<!-- PONUDA / OGRANICENJE / GARANCIJA -->
+<div style="padding:96px 56px">
+  <div data-reveal="" style="max-width:720px;margin-bottom:52px">
+    <div style="font-family:Newsreader;font-size:15px;font-style:italic;color:#6B6B6B;margin-bottom:14px">Kako počinješ</div>
+    <h2 style="font-family:Newsreader;font-weight:400;font-size:40px;line-height:1.1;color:#1A1A1A;margin:0;text-wrap:balance">Prvi korak te ne košta ništa</h2>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:28px;align-items:stretch;max-width:760px">
+    <div data-reveal="" data-delay="0" class="card-lift" style="display:flex;flex-direction:column;border:1px solid rgba(26,26,26,.14);padding:34px 30px">
+      <div style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#B07A56;margin-bottom:10px;font-weight:600">Bez naplate</div>
+      <h3 style="font-family:Newsreader;font-weight:500;font-size:23px;color:#1A1A1A;margin:0 0 12px">Prvi poziv je besplatan</h3>
+      <p style="font-size:14.5px;line-height:1.35;color:#5a5a5a;margin:0">Poziv od 30 minuta. Kažeš šta te muči, mi ti kažemo koje brojke vredi da izmeriš i šta ćeš iz njih saznati. Program biraš tek ako ima smisla za tebe.</p>
+    </div>
+    <div data-reveal="" data-delay="85" class="card-lift" style="display:flex;flex-direction:column;border:1px solid rgba(26,26,26,.14);padding:34px 30px">
+      <div style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#B07A56;margin-bottom:10px;font-weight:600">Ograničen broj mesta</div>
+      <h3 style="font-family:Newsreader;font-weight:500;font-size:23px;color:#1A1A1A;margin:0 0 12px">Primamo malo članova</h3>
+      <p style="font-size:14.5px;line-height:1.35;color:#5a5a5a;margin:0">Svakog meseca uzimamo ograničen broj novih članova, da svako dobije vreme sa timom i termine kad mu trebaju. Kad se popuni, ide se na listu čekanja.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div id="cta" style="background:#2F4738;padding:104px 56px;text-align:center;color:#EDE6D8">
+  <h2 data-reveal="" style="font-family:Newsreader;font-weight:400;font-size:50px;line-height:1.1;color:#fff;margin:0 0 20px;text-wrap:balance">Znaš kako radimo. Ostaje da vidiš svoje brojke.</h2>
+  <p data-reveal="" data-delay="90" style="font-size: 17px; line-height: 1.35; color: #c9d3c6; margin: 0 0 36px; max-width: 600px; margin-left: auto; margin-right: auto; width: 470px">Zakaži besplatan poziv od 30 minuta. Kažeš šta te muči, mi ti kažemo odakle da krenemo. Bez naplate i bez pritiska. Ako procenimo da ti ne trebamo, prvi ćemo ti reći.</p>
+  <a href="zakazivanje.html" data-reveal="" data-delay="170" class="btn-cta-light" style="background:#F3EDE4;color:#2F4738;padding:17px 36px;font-size:15px;font-weight:600;border-radius:2px;display:inline-block">Zakaži besplatan poziv</a>
+  <p data-reveal="" data-delay="230" style="font-size:14px;color:#8fa596;margin:28px 0 0">Za šest meseci ćeš ili znati svoje brojke, ili ćeš i dalje nagađati. Danas biraš koje.</p>
+</div>
+
+<footer style="background:#1A1A1A;color:#b8b3aa;padding:56px 56px 34px">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.1)">
+    <div style="max-width:340px">
+      <div style="font-family:Newsreader;font-size:22px;letter-spacing:.22em;color:#F3EDE4;margin-bottom:12px">MERIDIAN</div>
+      <p style="font-size:14px;line-height:1.3;color:#8a857c;margin:0">Ne čekamo da se pojavi simptom. Merimo dok se još sve može promeniti.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;color:#b8b3aa;line-height:1.5;max-width:280px">
+      <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#6f6a62;font-weight:600;margin-bottom:4px">Kontakt</div>
+      <a href="tel:+381114000200" class="flink" style="color:#b8b3aa">+381 11 4000 200</a>
+      <button type="button" data-copy="info@meridian.rs" class="copybtn" style="display:inline-flex;align-items:center;gap:7px;background:none;border:none;padding:0;margin:0;font-family:inherit;font-size:14px;color:#b8b3aa;cursor:pointer;text-align:left">
+        <span data-copy-text style="display:inline-flex;align-items:center;gap:7px">info@meridian.rs<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10"></path></svg></span>
+        <span data-copy-done style="display:none;align-items:center;gap:6px;color:#8fa596">Kopirano<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></span>
+      </button>
+      <a href="https://www.google.com/maps/search/?api=1&query=Molerova%209%2C%2011000%20Beograd" target="_blank" rel="noopener" class="flink" style="display:inline-flex;align-items:center;gap:7px;color:#b8b3aa">Molerova 9, 11000 Beograd<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.4 7-11a7 7 0 0 0-14 0c0 4.6 7 11 7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></a>
+      <div>Pon–pet 08–20 · sub 09–14</div>
+    </div>
+    <nav style="display:flex;gap:30px;font-size:14px;flex-wrap:wrap">
+      <a href="pristup.html" class="flink" style="color:#b8b3aa">Pristup</a>
+      <a href="programi.html" class="flink" style="color:#b8b3aa">Programi</a>
+      <a href="nauka.html" class="flink" style="color:#b8b3aa">Nauka</a>
+      <a href="o-nama.html" class="flink" style="color:#b8b3aa">O nama</a>
+    </nav>
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:24px;font-size:12.5px;color:#6f6a62">
+    <div>© 2026 Meridian</div>
+    <div style="display:flex;gap:24px"><a href="privatnost.html" class="flink-sm" style="color:#6f6a62">Privatnost</a><a href="uslovi.html" class="flink-sm" style="color:#6f6a62">Uslovi</a></div>
+  </div>
+</footer>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics="">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  body{margin:0;background:#F3EDE4;font-family:'Hanken Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:#2F4738;text-decoration:none}
+  a:hover{color:#B07A56}
+  h1,h2,h3{letter-spacing:-.01em}
+  .mlink{font-family:'Hanken Grotesk';font-size:14px;font-weight:600;letter-spacing:.01em;display:inline-flex;align-items:center;gap:8px}
+  .mlink span{display:inline-block;transition:transform .22s ease}
+  .mlink:hover span{transform:translateX(4px)}
+  .btn-cta{transition:background .25s ease,transform .2s ease,box-shadow .25s ease}
+  .btn-cta:hover{background:#243529 !important;transform:translateY(-2px);box-shadow:0 10px 24px rgba(26,26,26,.20)}
+  .btn-cta:active{transform:translateY(0)}
+  .btn-cta-light{transition:background .25s ease,transform .2s ease,box-shadow .25s ease}
+  .btn-cta-light:hover{background:#ffffff !important;transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.24)}
+  .cal-avail{transition:background .18s ease}
+  .cal-avail:hover{background:rgba(47,71,56,.16) !important}
+  .slot{transition:background .18s ease,border-color .18s ease,color .18s ease}
+  .slot:hover{border-color:#2F4738 !important;background:rgba(47,71,56,.06) !important}
+  .fld{transition:border-color .2s ease,background .2s ease}
+  .fld:focus{outline:none;border-color:#2F4738 !important;background:#fff !important}
+  .flink{position:relative;transition:color .22s ease}
+  .flink:hover{color:#F3EDE4 !important}
+  .flink::after{content:"";position:absolute;left:0;bottom:-3px;width:100%;height:1px;background:#B07A56;transform:scaleX(0);transform-origin:left;transition:transform .28s cubic-bezier(.16,.7,.3,1)}
+  .flink:hover::after{transform:scaleX(1)}
+  .flink-sm{transition:color .22s ease}
+  .flink-sm:hover{color:#b8b3aa !important}
+  .copybtn:hover{color:#F3EDE4}
+  .backlink{transition:color .2s ease}
+  .backlink:hover{color:#B07A56}
+  @media (max-width:860px){
+    header{flex-wrap:wrap;gap:14px 20px;padding:18px 24px !important}
+    header nav{gap:18px !important;flex-wrap:wrap}
+    .bookcard{grid-template-columns:1fr !important}
+    .bookleft{border-right:none !important;border-bottom:1px solid rgba(26,26,26,.12) !important}
+    .pickwrap{flex-direction:column !important}
+    .slotcol{flex:1 1 auto !important}
+    .slotlist{max-height:none !important}
+  }
+
+  /* ===== RESPONSIVE (mobile) ===== */
+  @media (max-width:768px){
+    [style*="px 56px"]{padding-left:24px!important;padding-right:24px!important}
+    [style*="px 48px"]{padding-left:24px!important;padding-right:24px!important}
+    [style*="grid-template-columns: repeat(4"]{grid-template-columns:1fr 1fr!important}
+    [style*="grid-template-columns: repeat(3"]{grid-template-columns:1fr!important}
+    [style*="grid-template-columns: repeat(2"]{grid-template-columns:1fr!important}
+    [style*="grid-template-columns: 1fr 1.9fr"]{grid-template-columns:1fr!important;gap:24px!important}
+    [style*="grid-template-columns: 1fr 1.5fr"]{grid-template-columns:1fr!important;gap:20px!important}
+    [style*="grid-template-columns: 1fr 1.35fr"]{grid-template-columns:1fr!important;gap:20px!important}
+    [style*="grid-template-columns: 0.95fr"]{grid-template-columns:1fr!important;gap:28px!important}
+    [style*="grid-template-columns: 1fr 1fr"]{grid-template-columns:1fr!important}
+    [style*="grid-template-columns: 88px 1fr"]{grid-template-columns:auto 1fr!important;gap:18px!important}
+    [style*="grid-template-columns: 1fr 1px 1fr auto"]{grid-template-columns:1fr!important;gap:22px!important}
+    [style*="min-height: 620px"]{flex-direction:column!important;min-height:0!important}
+    [style*="min-height: 620px"]>div:last-child{height:300px!important;flex:none!important}
+    [style*="flex: 0 0 42%"]{flex:1 1 auto!important}
+    [data-tcard]{flex:0 0 82%!important}
+    [style*="margin: 12px -56px"]{margin-left:0!important;margin-right:0!important}
+    [style*="width: 400px"]{width:auto!important}
+    [style*="width:"]{max-width:100%!important}
+    [style*="gap: 44px 56px"]{padding-left:0!important;padding-right:0!important}
+    h1{font-size:38px!important;line-height:1.08!important}
+    h2{font-size:30px!important}
+  }
+  @media (max-width:480px){
+    [style*="grid-template-columns: repeat(4"]{grid-template-columns:1fr!important}
+    h1{font-size:32px!important}
+  }
+</style>
+<script src="./copy.js"></script>
+<script src="./menu.js"></script>
+</helmet>
+
+<header style="display:flex;align-items:center;justify-content:space-between;padding:24px 56px;border-bottom:1px solid rgba(26,26,26,.10)">
+  <a href="index.html" style="font-family:Newsreader;font-size:23px;letter-spacing:.24em;color:#1A1A1A;font-weight:500">MERIDIAN</a>
+  <nav style="display:flex;gap:36px;font-size:14.5px;color:#3a3a3a;white-space:nowrap">
+    <a href="pristup.html" style="color:#3a3a3a">Pristup</a>
+    <a href="programi.html" style="color:#3a3a3a">Programi</a>
+    <a href="nauka.html" style="color:#3a3a3a">Nauka</a>
+    <a href="o-nama.html" style="color:#3a3a3a">O nama</a>
+  </nav>
+  <a href="#zakazi" class="btn-cta" style="background:#2F4738;color:#F3EDE4;padding:12px 22px;font-size:13.5px;font-weight:600;letter-spacing:.02em;border-radius:2px;white-space:nowrap;flex-shrink:0">Zakaži poziv</a>
+  <button type="button" class="m-burger" aria-label="Otvori meni"><span></span><span></span><span></span></button>
+  <div class="m-drawer" role="dialog" aria-label="Meni">
+    <nav class="m-drawer-nav">
+      <a href="pristup.html">Pristup</a>
+      <a href="programi.html">Programi</a>
+      <a href="nauka.html">Nauka</a>
+      <a href="o-nama.html">O nama</a>
+    </nav>
+    <a href="zakazivanje.html" class="m-drawer-cta">Zakaži poziv</a>
+  </div>
+</header>
+
+<!-- INTRO -->
+<div style="padding:80px 56px 8px;max-width:1000px;margin:0 auto">
+  <div style="font-size:12.5px;letter-spacing:.22em;color:#B07A56;font-weight:600;text-transform:uppercase;margin-bottom:26px">Zakazivanje</div>
+  <h1 style="font-family:Newsreader;font-weight:400;font-size:50px;line-height:1.06;letter-spacing:-.015em;color:#1A1A1A;margin:0 0 22px;max-width:760px;text-wrap:balance">Zakaži besplatan poziv</h1>
+  <p style="font-size:19px;line-height:1.45;color:#4a4a4a;margin:0;max-width:600px">Izaberi termin koji ti odgovara. Poziv traje 30 minuta. Kažeš šta te muči, mi ti kažemo odakle da krenemo. Bez naplate i bez pritiska.</p>
+</div>
+
+<!-- BOOKING CARD -->
+<div id="zakazi" style="padding:40px 56px 96px;max-width:1000px;margin:0 auto">
+  <div class="bookcard" style="display:grid;grid-template-columns:330px 1fr;background:#FBF8F1;border:1px solid rgba(26,26,26,.12);border-radius:4px;overflow:hidden">
+
+    <!-- LEFT: EVENT INFO -->
+    <div class="bookleft" style="padding:40px 34px;border-right:1px solid rgba(26,26,26,.12)">
+      <div style="font-family:Newsreader;font-size:14px;letter-spacing:.2em;color:#8a8577;font-weight:500;margin-bottom:22px">MERIDIAN</div>
+      <h2 style="font-family:Newsreader;font-weight:500;font-size:27px;line-height:1.15;color:#1A1A1A;margin:0 0 22px">Besplatan poziv</h2>
+      <div style="display:flex;flex-direction:column;gap:15px;margin-bottom:26px">
+        <div style="display:flex;align-items:center;gap:12px;font-size:15px;color:#4a4a4a">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B6B6B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+          30 minuta
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;font-size:15px;color:#4a4a4a">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B6B6B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="2"></rect><path d="M16 10l5-3v10l-5-3z"></path></svg>
+          Telefon ili video poziv
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;font-size:15px;color:#4a4a4a">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B6B6B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3c2.6 2.6 2.6 15.4 0 18"></path><path d="M12 3c-2.6 2.6-2.6 15.4 0 18"></path></svg>
+          Centralnoevropsko vreme (Beograd)
+        </div>
+      </div>
+      <p style="font-size:14.5px;line-height:1.5;color:#5a5a5a;margin:0;border-top:1px solid rgba(26,26,26,.1);padding-top:22px">Kratak razgovor sa lekarom da vidiš ima li smisla za tebe. Bez obaveze i bez pritiska, na tebi je da li ćeš dalje.</p>
+    </div>
+
+    <!-- RIGHT: STEPS -->
+    <div class="bookright" style="padding:40px 38px;min-height:460px">
+
+      <!-- STEP 1: PICK -->
+      <sc-if value="{{ isPick }}" hint-placeholder-val="{{ true }}">
+        <div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#B07A56;font-weight:600;margin-bottom:22px">Izaberi datum i vreme</div>
+        <div class="pickwrap" style="display:flex;gap:32px">
+
+          <!-- CALENDAR -->
+          <div style="flex:1;min-width:0">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px">
+              <div style="font-family:Newsreader;font-size:21px;color:#1A1A1A;text-transform:capitalize">{{ monthLabel }}</div>
+              <div style="display:flex;gap:8px">
+                <button onClick="{{ prevMonth }}" aria-label="Prethodni mesec" style="{{ prevStyle }}">←</button>
+                <button onClick="{{ nextMonth }}" aria-label="Sledeći mesec" style="{{ navStyle }}">→</button>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:4px">
+              <div style="text-align:center;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#8a8577;font-weight:600;padding-bottom:6px">Pon</div>
+              <div style="text-align:center;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#8a8577;font-weight:600;padding-bottom:6px">Uto</div>
+              <div style="text-align:center;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#8a8577;font-weight:600;padding-bottom:6px">Sre</div>
+              <div style="text-align:center;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#8a8577;font-weight:600;padding-bottom:6px">Čet</div>
+              <div style="text-align:center;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#8a8577;font-weight:600;padding-bottom:6px">Pet</div>
+              <div style="text-align:center;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#8a8577;font-weight:600;padding-bottom:6px">Sub</div>
+              <div style="text-align:center;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#8a8577;font-weight:600;padding-bottom:6px">Ned</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:6px">
+              <sc-for list="{{ cells }}" as="c" hint-placeholder-count="35">
+                <div class="{{ c.cls }}" style="{{ c.style }}" onClick="{{ c.onPick }}">{{ c.day }}</div>
+              </sc-for>
+            </div>
+          </div>
+
+          <!-- SLOT COLUMN -->
+          <div class="slotcol" style="flex:0 0 200px;display:flex;flex-direction:column;min-width:0">
+            <div style="font-size:14px;color:#1A1A1A;font-weight:600;margin-bottom:14px;min-height:20px;text-transform:capitalize">{{ dateHeading }}</div>
+            <sc-if value="{{ hasDate }}" hint-placeholder-val="{{ false }}">
+              <div class="slotlist" style="display:flex;flex-direction:column;gap:10px;max-height:296px;overflow-y:auto;padding-right:4px">
+                <sc-for list="{{ slots }}" as="s" hint-placeholder-count="6">
+                  <button class="{{ s.cls }}" style="{{ s.style }}" onClick="{{ s.onPick }}">{{ s.label }}</button>
+                </sc-for>
+              </div>
+              <sc-if value="{{ timeChosen }}" hint-placeholder-val="{{ false }}">
+                <button onClick="{{ goNext }}" class="btn-cta" style="margin-top:14px;background:#2F4738;color:#F3EDE4;padding:13px 0;border:none;border-radius:3px;font-size:14.5px;font-weight:600;cursor:pointer;font-family:inherit">Sledeće →</button>
+              </sc-if>
+            </sc-if>
+            <sc-if value="{{ noDate }}" hint-placeholder-val="{{ true }}">
+              <div style="font-size:14px;line-height:1.5;color:#8a8577;border:1px dashed rgba(26,26,26,.2);border-radius:4px;padding:20px 16px;text-align:center">Izaberi dan u kalendaru da vidiš slobodne termine.</div>
+            </sc-if>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- STEP 2: DETAILS -->
+      <sc-if value="{{ isDetails }}" hint-placeholder-val="{{ false }}">
+        <button onClick="{{ goBack }}" class="backlink" style="background:none;border:none;padding:0;font-family:inherit;font-size:14px;font-weight:600;color:#2F4738;cursor:pointer;display:inline-flex;align-items:center;gap:8px;margin-bottom:24px">← Nazad na termine</button>
+        <h3 style="font-family:Newsreader;font-weight:500;font-size:26px;color:#1A1A1A;margin:0 0 16px">Unesi svoje podatke</h3>
+        <div style="display:flex;align-items:center;gap:12px;font-size:15px;color:#2F4738;font-weight:600;background:rgba(47,71,56,.07);border-radius:3px;padding:14px 16px;margin-bottom:28px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F4738" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+          <span style="text-transform:capitalize">{{ summaryLine }}</span>
+        </div>
+        <form onSubmit="{{ submit }}" style="display:flex;flex-direction:column;gap:18px">
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <label style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#8a8577;font-weight:600">Ime i prezime</label>
+            <input class="fld" type="text" required="" style="width:100%;box-sizing:border-box;padding:13px 14px;border:1px solid rgba(26,26,26,.2);background:#FDFBF6;border-radius:3px;font-size:15px;font-family:inherit;color:#1A1A1A">
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+            <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
+              <label style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#8a8577;font-weight:600">Email</label>
+              <input class="fld" type="email" required="" style="width:100%;box-sizing:border-box;padding:13px 14px;border:1px solid rgba(26,26,26,.2);background:#FDFBF6;border-radius:3px;font-size:15px;font-family:inherit;color:#1A1A1A">
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
+              <label style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#8a8577;font-weight:600">Telefon</label>
+              <input class="fld" type="tel" style="width:100%;box-sizing:border-box;padding:13px 14px;border:1px solid rgba(26,26,26,.2);background:#FDFBF6;border-radius:3px;font-size:15px;font-family:inherit;color:#1A1A1A">
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <label style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#8a8577;font-weight:600">Šta te muči <span style="text-transform:none;letter-spacing:0;color:#b0a998;font-weight:400">(opciono)</span></label>
+            <textarea class="fld" rows="3" style="width:100%;box-sizing:border-box;padding:13px 14px;border:1px solid rgba(26,26,26,.2);background:#FDFBF6;border-radius:3px;font-size:15px;font-family:inherit;color:#1A1A1A;resize:vertical"></textarea>
+          </div>
+          <button type="submit" class="btn-cta" style="align-self:flex-start;background:#2F4738;color:#F3EDE4;padding:15px 32px;border:none;border-radius:2px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;margin-top:4px">Zakaži poziv</button>
+          <p style="font-size:13px;line-height:1.4;color:#8a8577;margin:0">Poziv je besplatan i ni na šta te ne obavezuje.</p>
+        </form>
+      </sc-if>
+
+      <!-- STEP 3: DONE (unavailable) -->
+      <sc-if value="{{ isDone }}" hint-placeholder-val="{{ false }}">
+        <div style="max-width:480px">
+          <div style="width:44px;height:3px;background:#B07A56;border-radius:2px;margin-bottom:26px"></div>
+          <h3 style="font-family:Newsreader;font-weight:400;font-size:30px;line-height:1.15;color:#1A1A1A;margin:0 0 16px;text-wrap:balance">Trenutno nije moguće zakazati poziv</h3>
+          <p style="font-size:16px;line-height:1.5;color:#4a4a4a;margin:0 0 22px">Online zakazivanje je privremeno van funkcije, pa tvoj termin nije rezervisan. Izvini na neprijatnosti.</p>
+          <div style="display:flex;align-items:center;gap:12px;font-size:14.5px;color:#6b6b6b;background:rgba(26,26,26,.04);border-radius:3px;padding:13px 16px;margin-bottom:26px">
+            <span style="color:#8a8577">Termin koji si izabrao:</span>
+            <span style="color:#1A1A1A;font-weight:600;text-transform:capitalize">{{ summaryLine }}</span>
+          </div>
+          <p style="font-size:15px;line-height:1.5;color:#4a4a4a;margin:0 0 14px">Do tada nas možeš dobiti direktno i termin ćemo dogovoriti odmah:</p>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:32px">
+            <div style="display:flex;align-items:center;gap:12px;font-size:15px;color:#1A1A1A"><span style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#8a8577;font-weight:600;width:66px">Telefon</span>+381 11 4000 200</div>
+            <div style="display:flex;align-items:center;gap:12px;font-size:15px;color:#1A1A1A"><span style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#8a8577;font-weight:600;width:66px">Email</span>info@meridian.rs</div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+            <button onClick="{{ restart }}" class="btn-cta" style="background:#2F4738;color:#F3EDE4;padding:14px 28px;border:none;border-radius:2px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit">Izaberi drugi termin</button>
+            <a href="index.html" class="mlink" style="font-size:15px">Nazad na početnu <span style="font-size:17px">→</span></a>
+          </div>
+        </div>
+      </sc-if>
+
+    </div>
+  </div>
+</div>
+
+<footer style="background:#1A1A1A;color:#b8b3aa;padding:56px 56px 34px">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.1)">
+    <div style="max-width:340px">
+      <div style="font-family:Newsreader;font-size:22px;letter-spacing:.22em;color:#F3EDE4;margin-bottom:12px">MERIDIAN</div>
+      <p style="font-size:14px;line-height:1.3;color:#8a857c;margin:0">Ne čekamo da se pojavi simptom. Merimo dok se još sve može promeniti.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;color:#b8b3aa;line-height:1.5;max-width:280px">
+      <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#6f6a62;font-weight:600;margin-bottom:4px">Kontakt</div>
+      <a href="tel:+381114000200" class="flink" style="color:#b8b3aa">+381 11 4000 200</a>
+      <button type="button" data-copy="info@meridian.rs" class="copybtn" style="display:inline-flex;align-items:center;gap:7px;background:none;border:none;padding:0;margin:0;font-family:inherit;font-size:14px;color:#b8b3aa;cursor:pointer;text-align:left">
+        <span data-copy-text="" style="display:inline-flex;align-items:center;gap:7px">info@meridian.rs<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10"></path></svg></span>
+        <span data-copy-done="" style="display:none;align-items:center;gap:6px;color:#8fa596">Kopirano<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></span>
+      </button>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Molerova+9%2C+11000+Beograd" target="_blank" rel="noopener" class="flink" style="display:inline-flex;align-items:center;gap:7px;color:#b8b3aa">Molerova 9, 11000 Beograd<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.4 7-11a7 7 0 0 0-14 0c0 4.6 7 11 7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></a>
+      <div>Pon–pet 08–20 · sub 09–14</div>
+    </div>
+    <nav style="display:flex;gap:30px;font-size:14px;flex-wrap:wrap">
+      <a href="pristup.html" class="flink" style="color:#b8b3aa">Pristup</a>
+      <a href="programi.html" class="flink" style="color:#b8b3aa">Programi</a>
+      <a href="nauka.html" class="flink" style="color:#b8b3aa">Nauka</a>
+      <a href="o-nama.html" class="flink" style="color:#b8b3aa">O nama</a>
+    </nav>
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:24px;font-size:12.5px;color:#6f6a62">
+    <div>© 2026 Meridian</div>
+    <div style="display:flex;gap:24px"><a href="privatnost.html" class="flink-sm" style="color:#6f6a62">Privatnost</a><a href="uslovi.html" class="flink-sm" style="color:#6f6a62">Uslovi</a></div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  MONTHS = ['januar','februar','mart','april','maj','jun','jul','avgust','septembar','oktobar','novembar','decembar'];
+  WDAYS = ['nedelja','ponedeljak','utorak','sreda','četvrtak','petak','subota'];
+
+  state = (function () {
+    const now = new Date();
+    return {
+      month: new Date(now.getFullYear(), now.getMonth(), 1),
+      step: 'pick',
+      selectedISO: null,
+      selectedDate: null,
+      selectedTime: null,
+    };
+  })();
+
+  iso(d) {
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  }
+
+  beforeCurrentMonth(d) {
+    const now = new Date();
+    const cur = new Date(now.getFullYear(), now.getMonth(), 1);
+    return d < cur;
+  }
+
+  prevMonth = () => {
+    const m = this.state.month;
+    const p = new Date(m.getFullYear(), m.getMonth() - 1, 1);
+    if (!this.beforeCurrentMonth(p)) this.setState({ month: p });
+  };
+
+  nextMonth = () => {
+    const m = this.state.month;
+    this.setState({ month: new Date(m.getFullYear(), m.getMonth() + 1, 1) });
+  };
+
+  pickDate = (iso, date) => {
+    this.setState({ selectedISO: iso, selectedDate: date, selectedTime: null });
+  };
+
+  pickTime = (t) => this.setState({ selectedTime: t });
+  goNext = () => { if (this.state.selectedTime) this.setState({ step: 'details' }); };
+  goBack = () => this.setState({ step: 'pick' });
+  submit = (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ step: 'done' }); };
+  restart = () => this.setState({ step: 'pick', selectedISO: null, selectedDate: null, selectedTime: null });
+
+  longDate(d) {
+    return this.WDAYS[d.getDay()] + ', ' + d.getDate() + '. ' + this.MONTHS[d.getMonth()] + ' ' + d.getFullYear() + '.';
+  }
+
+  shortDateHeading(d) {
+    return this.WDAYS[d.getDay()] + ', ' + d.getDate() + '. ' + this.MONTHS[d.getMonth()];
+  }
+
+  summaryLine() {
+    const st = this.state;
+    if (!st.selectedDate || !st.selectedTime) return '';
+    const [h, m] = st.selectedTime.split(':').map(Number);
+    const end = new Date(st.selectedDate);
+    end.setHours(h, m + 30, 0, 0);
+    const et = String(end.getHours()).padStart(2, '0') + ':' + String(end.getMinutes()).padStart(2, '0');
+    return st.selectedTime + ' – ' + et + ' · ' + this.longDate(st.selectedDate);
+  }
+
+  buildCells() {
+    const st = this.state;
+    const y = st.month.getFullYear(), m = st.month.getMonth();
+    const first = new Date(y, m, 1);
+    const startDay = (first.getDay() + 6) % 7;
+    const dim = new Date(y, m + 1, 0).getDate();
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    const base = 'height:40px;display:flex;align-items:center;justify-content:center;font-size:14.5px;border-radius:50%;';
+    const cells = [];
+    for (let i = 0; i < startDay; i++) cells.push({ key: 'e' + i, day: '', cls: '', style: base + 'visibility:hidden', onPick: undefined });
+    for (let d = 1; d <= dim; d++) {
+      const date = new Date(y, m, d); date.setHours(0, 0, 0, 0);
+      const disabled = date < today || date.getDay() === 0;
+      const iso = this.iso(date);
+      const selected = iso === st.selectedISO;
+      let style, cls;
+      if (disabled) { style = base + 'color:#c2b9a8;'; cls = ''; }
+      else if (selected) { style = base + 'background:#2F4738;color:#F3EDE4;font-weight:600;cursor:pointer;'; cls = ''; }
+      else { style = base + 'color:#2F4738;font-weight:600;cursor:pointer;background:rgba(47,71,56,.07);'; cls = 'cal-avail'; }
+      cells.push({ key: iso, day: d, cls, style, onPick: disabled ? undefined : () => this.pickDate(iso, date) });
+    }
+    while (cells.length % 7 !== 0) cells.push({ key: 'p' + cells.length, day: '', cls: '', style: base + 'visibility:hidden', onPick: undefined });
+    return cells;
+  }
+
+  buildSlots() {
+    const st = this.state;
+    const out = [];
+    const base = 'width:100%;box-sizing:border-box;padding:13px 0;text-align:center;border:1px solid rgba(47,71,56,.4);border-radius:3px;font-size:14.5px;font-weight:600;cursor:pointer;font-family:inherit;';
+    for (let h = 9; h <= 17; h++) {
+      for (const m of [0, 30]) {
+        const label = String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0');
+        const selected = st.selectedTime === label;
+        const style = selected
+          ? base + 'background:#2F4738;border-color:#2F4738;color:#F3EDE4;'
+          : base + 'background:transparent;color:#2F4738;';
+        out.push({ key: label, label, cls: selected ? '' : 'slot', style, onPick: () => this.pickTime(label) });
+      }
+    }
+    return out;
+  }
+
+  renderVals() {
+    const st = this.state;
+    const navBase = 'width:36px;height:36px;border:1px solid rgba(26,26,26,.2);background:transparent;border-radius:50%;font-size:16px;color:#1A1A1A;display:flex;align-items:center;justify-content:center;font-family:inherit;';
+    const prevDisabled = this.beforeCurrentMonth(new Date(st.month.getFullYear(), st.month.getMonth() - 1, 1));
+    return {
+      isPick: st.step === 'pick',
+      isDetails: st.step === 'details',
+      isDone: st.step === 'done',
+      monthLabel: this.MONTHS[st.month.getMonth()] + ' ' + st.month.getFullYear(),
+      cells: this.buildCells(),
+      slots: st.selectedISO ? this.buildSlots() : [],
+      hasDate: !!st.selectedISO,
+      noDate: !st.selectedISO,
+      timeChosen: !!st.selectedTime,
+      dateHeading: st.selectedDate ? this.shortDateHeading(st.selectedDate) : '',
+      summaryLine: this.summaryLine(),
+      navStyle: navBase + 'cursor:pointer;',
+      prevStyle: navBase + (prevDisabled ? 'opacity:.3;cursor:default;pointer-events:none;' : 'cursor:pointer;'),
+      prevMonth: this.prevMonth,
+      nextMonth: this.nextMonth,
+      goNext: this.goNext,
+      goBack: this.goBack,
+      submit: this.submit,
+      restart: this.restart,
+    };
+  }
+}
+</script>
+</body>
+</html>
